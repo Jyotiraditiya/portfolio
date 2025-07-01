@@ -13,6 +13,13 @@ module.exports = {
       colors: {
         primary: '#6366F1', // Indigo-500
         secondary: '#8B5CF6', // Violet-500
+        glass: 'rgba(255, 255, 255, 0.1)',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      borderRadius: {
+        xl: '1rem',
       },
       animation: {
         fade: 'fadeIn 1s ease-in-out',

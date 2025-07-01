@@ -6,15 +6,28 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Jyotiraditya Misra | Portfolio',
-  description: 'Portfolio website of Jyotiraditya Misra',
+  description: 'My Developer Portfolio',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body className={`${inter.className} bg-white text-black dark:bg-zinc-900 dark:text-white transition-colors`}>
-        {children}
+    <html lang="en">
+      <body
+        className={`${inter.className} min-h-screen bg-black bg-[url('/bg.jpg')] bg-cover bg-center flex items-center justify-center`}
+        style={{
+          backgroundBlendMode: 'overlay',
+        }}
+      >
+        <div className="flex min-h-screen w-full items-center justify-center">
+          <div className="relative z-10 w-full max-w-xl rounded-3xl bg-white/10 p-10 shadow-2xl backdrop-blur-lg border border-white/20">
+            {children}
+          </div>
+        </div>
+        <div className="fixed inset-0 z-0 bg-black/60 backdrop-blur-lg" aria-hidden="true" />
       </body>
     </html>
   );
