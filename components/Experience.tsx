@@ -62,7 +62,7 @@ const Experience = () => {
 				{experiences.map((exp, idx) => (
 					<div
 						key={idx}
-						ref={(el) => (refs.current[idx] = el)}
+						
 						className={`bg-white dark:bg-black rounded-xl shadow p-6 transition-all duration-700 hover:shadow-lg
               ${visible[idx]
 								? idx % 2 === 0
