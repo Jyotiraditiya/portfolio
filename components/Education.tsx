@@ -1,12 +1,14 @@
+"use client";
+
 import React from 'react';
 
 const Education = () => {
   return (
-    <section className="bg-gray-100 dark:bg-zinc-900 p-6 rounded-lg shadow-md my-8">
-      <h2 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-white">Education</h2>
+    <section className="bg-white dark:bg-black p-8 rounded-2xl shadow-lg my-8 max-w-3xl mx-auto animate-slideInTop">
+      <h2 className="text-2xl font-bold mb-6 text-purple-800 dark:text-white text-center">Education</h2>
 
       <div className="mb-6">
-        <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+        <h3 className="text-xl font-semibold text-black dark:text-white">
           Bachelor of Technology (B.Tech) in Computer Science & Engineering
         </h3>
         <p className="text-gray-700 dark:text-gray-300">
@@ -15,19 +17,20 @@ const Education = () => {
         <p className="text-gray-700 dark:text-gray-300">Current CGPA: 7.5</p>
       </div>
 
-      <div>
-        <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+      <div className="mb-6">
+        <h3 className="text-xl font-semibold text-black dark:text-white">
           Higher Secondary Education (Class 12)
         </h3>
         <p className="text-gray-700 dark:text-gray-300">Loyola International School – 2023</p>
       </div>
 
-      <div className="mt-4">
-        <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-100">
+      <div>
+        <h3 className="text-xl font-semibold text-black dark:text-white">
           Secondary Education (Class 10)
         </h3>
         <p className="text-gray-700 dark:text-gray-300">Loyola International School – 2021</p>
       </div>
+      
     </section>
   );
 };

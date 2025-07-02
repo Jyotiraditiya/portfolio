@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useRef, useEffect, useState } from 'react';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGithub, FaDatabase, FaPython, FaCuttlefish, FaJsSquare } from 'react-icons/fa';
 import { SiNextdotjs, SiTailwindcss, SiMongodb, SiTypescript, SiCplusplus } from 'react-icons/si';
 import { MdDesignServices } from 'react-icons/md';
@@ -16,7 +18,6 @@ const skills = [
     { name: 'GitHub', icon: <FaGithub className="text-[#181717]" /> },
 ];
 
-// Each extra skill is now individual with its own icon
 const extraSkills = [
     { label: 'DSA', icon: <FaDatabase className="text-3xl text-[#6366F1] mb-2" /> },
     { label: 'OOP Concepts', icon: <FaDatabase className="text-3xl text-[#6366F1] mb-2" /> },
@@ -36,66 +37,116 @@ const softSkills = [
     { label: 'Communication, Leadership', icon: <BsFillPeopleFill className="text-3xl text-[#8B5CF6] mb-2" /> }
 ];
 
-const Skills = () => (
-    <section id="skills" className="my-24 max-w-5xl mx-auto animate-fadeInUp">
-        <h2 className="text-3xl font-bold text-purple-800 dark:text-black mb-8 text-center">
-            Skills
-        </h2>
-        {/* Parallel grid for skills and extraSkills */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {/* Main Skills */}
-            <div>
-                <h3 className="text-xl font-semibold text-purple-700 dark:text-black mb-4 text-center">Core Skills</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
-                    {skills.map((skill) => (
-                        <div
-                            key={skill.name}
-                            className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
-                        >
-                            <div className="text-5xl mb-2 group-hover:animate-bounce">
-                                {skill.icon}
+const Skills = () => {
+    const coreRef = useRef<HTMLDivElement>(null);
+    const extraRef = useRef<HTMLDivElement>(null);
+    const softRef = useRef<HTMLDivElement>(null);
+
+    const [coreVisible, setCoreVisible] = useState(false);
+    const [extraVisible, setExtraVisible] = useState(false);
+    const [softVisible, setSoftVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (coreRef.current) {
+                const rect = coreRef.current.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) setCoreVisible(true);
+            }
+            if (softRef.current) {
+                const rect = softRef.current.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) setSoftVisible(true);
+            }
+            if (extraRef.current) {
+                const rect = extraRef.current.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) setExtraVisible(true);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+        <section id="skills" className="my-24 max-w-5xl mx-auto animate-fadeInUp">
+            <h2 className="text-3xl font-bold text-purple-800 dark:text-black mb-8 text-center">
+                Skills
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Core Skills Box */}
+                <div
+                    ref={coreRef}
+                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                        coreVisible
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 -translate-x-16"
+                    }`}
+                >
+                    <h3 className="text-xl font-semibold text-white mb-4 text-center">Core Skills</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
+                        {skills.map((skill) => (
+                            <div
+                                key={skill.name}
+                                className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
+                            >
+                                <div className="text-5xl mb-2 group-hover:animate-bounce">
+                                    {skill.icon}
+                                </div>
+                                <span className="text-lg font-medium text-white text-center">
+                                    {skill.name}
+                                </span>
                             </div>
-                            <span className="text-lg font-medium text-gray-700 dark:text-black text-center">
-                                {skill.name}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            {/* Extra Skills */}
-            <div>
-                <h3 className="text-xl font-semibold text-purple-700 dark:text-black mb-4 text-center">Extra Skills</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
-                    {extraSkills.map((item) => (
-                        <div
-                            key={item.label}
-                            className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
-                        >
-                            <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
-                            <span className="text-lg font-medium text-gray-700 dark:text-black text-center">{item.label}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-        {/* Soft Skills */}
-        <div>
-            <h3 className="text-xl font-semibold text-purple-700 dark:text-black mb-4 text-center">
-                Soft Skills
-            </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center">
-                {softSkills.map((item) => (
-                    <div
-                        key={item.label}
-                        className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
-                    >
-                        <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
-                        <span className="text-lg font-medium text-gray-700 dark:text-black text-center">{item.label}</span>
+                        ))}
                     </div>
-                ))}
+                </div>
+                {/* Soft Skills Box (center) */}
+                <div
+                    ref={softRef}
+                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                        softVisible
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-16"
+                    }`}
+                >
+                    <h3 className="text-xl font-semibold text-white mb-4 text-center">
+                        Soft Skills
+                    </h3>
+                    <div className="grid grid-cols-1 gap-8 justify-items-center">
+                        {softSkills.map((item) => (
+                            <div
+                                key={item.label}
+                                className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
+                            >
+                                <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
+                                <span className="text-lg font-medium text-white text-center">{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                {/* Extra Skills Box */}
+                <div
+                    ref={extraRef}
+                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                        extraVisible
+                            ? "opacity-100 translate-x-0"
+                            : "opacity-0 translate-x-16"
+                    }`}
+                >
+                    <h3 className="text-xl font-semibold text-white mb-4 text-center">Extra Skills</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
+                        {extraSkills.map((item) => (
+                            <div
+                                key={item.label}
+                                className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
+                            >
+                                <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
+                                <span className="text-lg font-medium text-white text-center">{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 export default Skills;

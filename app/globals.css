@@ -41,11 +41,45 @@ body {
   animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* Slide In Top Animation */
+@keyframes slideInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slideInTop {
+  animation: slideInTop 0.8s cubic-bezier(0.68,-0.55,0.27,1.55) both;
+}
+
 /* Dark Mode Styles */
 body.dark,
-.dark body {
-  color: #000 !important;
+.dark body,
+html.dark,
+.dark html {
+  background-color: #000 !important;
+  color: #fff !important;
 }
-.dark * {
-  color: #000 !important;
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background-color: #000 !important;
+}
+.dark .text-gray-700,
+.dark .text-black,
+.dark .text-purple-800,
+.dark .text-gray-600,
+.dark .text-lg,
+.dark .text-xl,
+.dark .text-base,
+.dark .text-sm,
+.dark .text-center,
+.dark .text-left,
+.dark .text-right {
+  color: #fff !important;
 }
