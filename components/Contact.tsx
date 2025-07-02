@@ -21,7 +21,7 @@ const contacts = [
 		),
 		label: 'LinkedIn',
 		value: 'jyotiraditiyamisra',
-		link: 'https://linkedin.com/in/jyotiraditiyamisra',
+		link: 'www.linkedin.com/in/jyotiraditiya-misra-523699280',
 		color: 'text-[#0077B5]',
 	},
 	{
@@ -30,7 +30,7 @@ const contacts = [
 		),
 		label: 'Instagram',
 		value: 'jyotiraditiyamisra',
-		link: 'https://instagram.com/jyotiraditiyamisra',
+		link: 'https://instagram.com/misrajyotiraditiya',
 		color: 'text-[#E4405F]',
 	},
 	{
@@ -48,7 +48,7 @@ const contacts = [
 		),
 		label: 'LeetCode',
 		value: 'jyotiraditiyamisra',
-		link: 'https://leetcode.com/jyotiraditiyamisra',
+		link: 'https://leetcode.com/jyotiraditiya_misra1',
 		color: 'text-[#FFA116]',
 	},
 	{
@@ -57,7 +57,7 @@ const contacts = [
 		),
 		label: 'Twitter',
 		value: 'jyotimisra_',
-		link: 'https://twitter.com/jyotimisra_',
+		link: 'https://x.com/jyotiradit73632?s=21',
 		color: 'text-[#1DA1F2]',
 	},
 ];
