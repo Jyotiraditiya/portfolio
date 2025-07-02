@@ -33,8 +33,7 @@ export default function Home() {
             title="Muscle Classics Ecommerce"
             description="we specialize in classic and modern American muscle cars—from legendary icons like the Mustang, Challenger, and Camaro to rare, high-performance builds. Whether you’re a collector, enthusiast, or first-time buyer, we offer a curated inventory of powerful machines that embody speed, style, and heritage.
 
-Drive the legacy. Own the muscle.Full-stack ecommerce platform. Features: product catalog, cart, checkout, and admin dashboard."
-          
+Drive the legacy. Own the muscle. Full-stack ecommerce platform. Features: product catalog, cart, checkout, and admin dashboard."
             status="Under Development"
             index={1}
           />
