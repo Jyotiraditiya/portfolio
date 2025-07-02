@@ -1,28 +1,41 @@
 import React from 'react';
 import Image from 'next/image';
+import ResumeDownload from './ResumeDownload';
 
-const GlassCard = ({ children }: { children: React.ReactNode }) => (
-  <div className="bg-white/20 backdrop-blur-md rounded-2xl shadow-lg p-8 max-w-xl mx-auto border border-white/30">
-    {children}
-  </div>
+const Hero = () => (
+  <section className="flex flex-col md:flex-row items-center justify-between gap-12 py-20 md:py-32 max-w-5xl mx-auto">
+    <div>
+      <h1 className="text-5xl font-extrabold mb-6 text-purple-800 leading-tight">
+        Hi, I'm Jyotiraditiya Misra
+      </h1>
+      <p className="text-xl text-gray-700 mb-8 max-w-xl">
+        I design and develop elegant, scalable digital experiences with React, Next.js, and cutting-edge web technologies.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 mb-4">
+        <a
+          href="#projects"
+          className="inline-block px-8 py-3 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition"
+        >
+          View Projects
+        </a>
+        <ResumeDownload />
+      </div>
+    </div>
+    <div className="flex-shrink-0">
+      <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+        {/* Decorative gradient ring */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-400 via-purple-200 to-purple-600 blur-2xl opacity-60 z-0" />
+        {/* Enlarged, full circle image with no border */}
+        <Image
+          src="/jyotiraditya.jpg"
+          alt="Jyotiraditya Misra"
+          width={360}
+          height={360}
+          className="relative z-10 rounded-full shadow-2xl object-cover"
+        />
+      </div>
+    </div>
+  </section>
 );
-
-const Hero = () => {
-  return (
-    <section className="flex flex-col items-center justify-center min-h-[60vh]">
-      <Image
-        src="/jyotiraditya.jpg"
-        alt="Jyotiraditya Misra"
-        width={120}
-        height={120}
-        className="rounded-full mx-auto border-4 border-primary shadow-lg mb-6"
-      />
-      <GlassCard>
-        <h1 className="text-4xl font-bold mb-2">Welcome to My Portfolio</h1>
-        <p className="text-lg text-gray-100">I’m a developer building elegant digital experiences.</p>
-      </GlassCard>
-    </section>
-  );
-};
 
 export default Hero;

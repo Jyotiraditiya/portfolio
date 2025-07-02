@@ -11,8 +11,8 @@ module.exports = {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        primary: '#6366F1', // Indigo-500
-        secondary: '#8B5CF6', // Violet-500
+        primary: '#6366F1',
+        secondary: '#8B5CF6',
         glass: 'rgba(255, 255, 255, 0.1)',
       },
       backdropBlur: {
@@ -20,15 +20,6 @@ module.exports = {
       },
       borderRadius: {
         xl: '1rem',
-      },
-      animation: {
-        fade: 'fadeIn 1s ease-in-out',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: 0 },
-          '100%': { opacity: 1 },
-        },
       },
     },
   },
