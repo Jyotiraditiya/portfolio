@@ -17,10 +17,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Check environment variables
+    console.log('Checking environment variables...');
+    console.log('GMAIL_USER exists:', !!process.env.GMAIL_USER);
+    console.log('GMAIL_APP_PASSWORD exists:', !!process.env.GMAIL_APP_PASSWORD);
+    
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       console.log('Missing environment variables');
       return NextResponse.json(
-        { error: 'Server configuration error' },
+        { error: 'Server configuration error: Missing email credentials. Please contact directly at misrajyotiraditya@gmail.com' },
         { status: 500 }
       );
     }
@@ -37,8 +41,16 @@ export async function POST(request: NextRequest) {
 
     // Test the transporter
     console.log('Verifying transporter...');
-    await transporter.verify();
-    console.log('Transporter verified successfully');
+    try {
+      await transporter.verify();
+      console.log('Transporter verified successfully');
+    } catch (verifyError) {
+      console.error('Transporter verification failed:', verifyError);
+      return NextResponse.json(
+        { error: 'Email service temporarily unavailable. Please contact directly at misrajyotiraditya@gmail.com' },
+        { status: 500 }
+      );
+    }
 
     // Email content
     const mailOptions = {
@@ -81,8 +93,21 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('Error sending email:', error);
+    
+    // Provide more specific error messages
+    let errorMessage = 'Failed to send email';
+    if (error instanceof Error) {
+      if (error.message.includes('Invalid login')) {
+        errorMessage = 'Email service authentication failed. Please contact directly at misrajyotiraditya@gmail.com';
+      } else if (error.message.includes('ENOTFOUND') || error.message.includes('ECONNREFUSED')) {
+        errorMessage = 'Network connection failed. Please try again or contact directly at misrajyotiraditya@gmail.com';
+      } else {
+        errorMessage = `Email service temporarily unavailable. Please contact directly at misrajyotiraditya@gmail.com`;
+      }
+    }
+    
     return NextResponse.json(
-      { error: `Failed to send email: ${error instanceof Error ? error.message : 'Unknown error'}` },
+      { error: errorMessage },
       { status: 500 }
     );
   }

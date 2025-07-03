@@ -18,6 +18,7 @@
   "author": "Jyotiraditya Misra",
   "license": "MIT",
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@types/nodemailer": "^6.4.17",
     "autoprefixer": "^10.4.15",
     "framer-motion": "^12.20.2",

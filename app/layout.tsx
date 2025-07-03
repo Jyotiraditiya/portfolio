@@ -1,7 +1,7 @@
 // app/layout.tsx
 
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -9,11 +9,15 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Jyotiraditya Misra | Portfolio',
   description: 'My Developer Portfolio',
-  viewport: 'width=device-width, initial-scale=1',
-  themeColor: '#8B5CF6',
   icons: {
     icon: '/favicon.ico',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#8B5CF6',
 };
 
 export default function RootLayout({

@@ -237,6 +237,15 @@ const Contact = () => {
                                 <FiSend className={`text-lg ${loading ? 'animate-spin' : ''}`} />
                                 {loading ? 'Sending...' : 'Send Message'}
                             </button>
+                            <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 text-center mt-2">
+                                Having trouble? Email me directly at{' '}
+                                <a 
+                                    href="mailto:misrajyotiraditya@gmail.com" 
+                                    className="text-purple-600 dark:text-purple-300 hover:underline"
+                                >
+                                    misrajyotiraditya@gmail.com
+                                </a>
+                            </div>
                         </form>
                     )}
                 </div>
