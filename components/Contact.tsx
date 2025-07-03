@@ -66,15 +66,34 @@ const Contact = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' });
     const [sent, setSent] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        setTimeout(() => {
-            setSent(true);
+        setError('');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
+
+            if (response.ok) {
+                setSent(true);
+                setForm({ name: '', email: '', message: '' });
+            } else {
+                const data = await response.json();
+                setError(data.error || 'Failed to send message');
+            }
+        } catch (err) {
+            setError('Network error. Please try again.');
+        } finally {
             setLoading(false);
-            setForm({ name: '', email: '', message: '' });
-        }, 1200);
+        }
     };
 
     // Split contacts into two columns
@@ -171,6 +190,11 @@ const Contact = () => {
                         </div>
                     ) : (
                         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                            {error && (
+                                <div className="text-red-400 text-center font-semibold py-2 animate-fadeIn">
+                                    {error}
+                                </div>
+                            )}
                             <input
                                 type="text"
                                 required

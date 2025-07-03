@@ -30,13 +30,10 @@ const Hero = () => (
           left: "-12px",
         }}
       >
-        {bounceWords("JYOTIRADITIYA MISRA")}
+        JYOTIRADITIYA MISRA
       </h1>
       <p className="text-xl text-gray-700 mb-8 max-w-xl">
-        {bounceWords(
-          "I design and develop elegant, scalable digital experiences with React, Next.js, and cutting-edge web technologies.",
-          0.03
-        )}
+        I design and develop elegant, scalable digital experiences with React, Next.js, and cutting-edge web technologies.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 mb-4">
         <a

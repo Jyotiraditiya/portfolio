@@ -18,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-white dark:bg-gradient-to-br dark:from-purple-900 dark:via-purple-800 dark:to-purple-600`}>
-        <div className="w-full min-h-screen bg-gradient-to-br from-purple-100 via-white to-white dark:bg-none">
+      <body className={`${inter.className} min-h-screen`}>
+        <div className="w-full min-h-screen bg-white/80 dark:bg-black/60 backdrop-blur-sm">
           {children}
         </div>
       </body>
