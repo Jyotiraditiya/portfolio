@@ -72,14 +72,14 @@ const certifications = [
 ];
 
 const Certification = () => (
-	<section className="my-8 max-w-3xl mx-auto animate-slideInTop">
-		<h2 className="text-2xl font-bold mb-6 text-purple-800 dark:text-white text-center">Certifications</h2>
-		<ul className="space-y-4">
+	<section className="my-6 md:my-8 max-w-4xl mx-auto px-4 animate-slideInTop">
+		<h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-purple-800 dark:text-white text-center">Certifications</h2>
+		<ul className="space-y-3 md:space-y-4">
 			{certifications.map((cert, idx) => (
 				<li
 					key={idx}
 					className={`
-						bg-white/80 dark:bg-gray-900 border border-purple-200 rounded-xl p-4 shadow-lg
+						bg-white/80 dark:bg-gray-900 border border-purple-200 rounded-xl p-3 md:p-4 shadow-lg
 						${idx % 2 === 0 ? 'animate-slideInRight' : 'animate-slideInLeft'}
 					`}
 					style={{
@@ -87,24 +87,24 @@ const Certification = () => (
 						animationFillMode: 'both',
 					}}
 				>
-					<div className="text-lg font-semibold text-purple-800 dark:text-white">
+					<div className="text-base md:text-lg font-semibold text-purple-800 dark:text-white">
 						{cert.title}
 					</div>
-					<div className="text-gray-700 dark:text-gray-300">{cert.issuer}</div>
+					<div className="text-sm md:text-base text-gray-700 dark:text-gray-300">{cert.issuer}</div>
 					{cert.name && (
-						<div className="text-gray-700 dark:text-gray-300">{cert.name}</div>
+						<div className="text-sm md:text-base text-gray-700 dark:text-gray-300">{cert.name}</div>
 					)}
 					{cert.date && (
-						<div className="text-sm text-gray-500 dark:text-gray-400">{cert.date}</div>
+						<div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">{cert.date}</div>
 					)}
 					{cert.image && (
 						null
 					)}
 					{cert.description && (
-						<div className="text-sm text-gray-600 dark:text-gray-300 mt-1">{cert.description}</div>
+						<div className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-1">{cert.description}</div>
 					)}
 					{cert.skills && cert.skills.length > 0 && (
-						<div className="text-sm text-gray-600 dark:text-gray-300 mt-1">
+						<div className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-1">
 							Skills: {cert.skills.join(", ")}
 						</div>
 					)}
@@ -113,7 +113,7 @@ const Certification = () => (
 							href={cert.link}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="block mt-2 text-purple-600 dark:text-purple-300 hover:underline font-medium"
+							className="block mt-2 text-purple-600 dark:text-purple-300 hover:underline font-medium text-sm md:text-base"
 						>
 							Verify Certificate
 						</a>

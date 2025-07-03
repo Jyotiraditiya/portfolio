@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Jyotiraditya Misra | Portfolio',
   description: 'My Developer Portfolio',
+  viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#8B5CF6',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

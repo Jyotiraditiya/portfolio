@@ -20,25 +20,25 @@ const bounceWords = (text: string, baseDelay = 0.05) =>
   ));
 
 const Hero = () => (
-  <section className="flex flex-col md:flex-row items-center justify-between gap-12 py-20 md:py-32 max-w-5xl mx-auto">
-    <div>
+  <section className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 py-12 md:py-20 lg:py-32 max-w-5xl mx-auto px-4">
+    <div className="text-center md:text-left">
       <h1
-        className="whitespace-nowrap text-5xl md:text-6xl font-extrabold mb-6 text-purple-800 leading-tight overflow-x-auto"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 text-purple-800 leading-tight break-words"
         style={{
           position: "relative",
-          top: "-12px",
-          left: "-12px",
+          top: "-8px",
+          left: "-8px",
         }}
       >
         JYOTIRADITIYA MISRA
       </h1>
-      <p className="text-xl text-gray-700 mb-8 max-w-xl">
+      <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 md:mb-8 max-w-xl mx-auto md:mx-0">
         I design and develop elegant, scalable digital experiences with React, Next.js, and cutting-edge web technologies.
       </p>
-      <div className="flex flex-col sm:flex-row gap-4 mb-4">
+      <div className="flex flex-col sm:flex-row gap-4 mb-4 justify-center md:justify-start">
         <a
           href="#projects"
-          className="inline-block px-8 py-3 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition"
+          className="inline-block px-6 md:px-8 py-3 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition text-center"
         >
           View Projects
         </a>
@@ -46,7 +46,7 @@ const Hero = () => (
       </div>
     </div>
     <div className="flex-shrink-0">
-      <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+      <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center">
         {/* Decorative gradient ring */}
         <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-400 via-purple-200 to-purple-600 blur-2xl opacity-60 z-0" />
         {/* Enlarged, full circle image with no border */}
@@ -55,7 +55,7 @@ const Hero = () => (
           alt="Jyotiraditya Misra"
           width={360}
           height={360}
-          className="relative z-10 rounded-full shadow-2xl object-cover"
+          className="relative z-10 rounded-full shadow-2xl object-cover w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] lg:w-[360px] lg:h-[360px]"
         />
       </div>
     </div>

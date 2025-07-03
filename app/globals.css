@@ -16,6 +16,16 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Mobile Background Adjustments */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center top;
+  }
 }
 
 /* Custom Scrollbar */
@@ -87,4 +97,55 @@ html.dark,
 .dark .text-left,
 .dark .text-right {
   color: #fff !important;
+}
+
+/* Mobile Specific Improvements */
+@media (max-width: 640px) {
+  /* Ensure text doesn't overflow on small screens */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-16 > * + * {
+    margin-top: 3rem !important;
+  }
+  
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Mobile-friendly touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Tablet Improvements */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .space-y-16 > * + * {
+    margin-top: 4rem !important;
+  }
+}
+
+/* Ensure proper scaling on all devices */
+@media (max-width: 1024px) {
+  /* Better image scaling */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Prevent text overflow */
+  .text-3xl, .text-4xl, .text-5xl, .text-6xl {
+    line-height: 1.2;
+  }
 }

@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-12">
+    <footer className="bg-gray-800 text-white py-4 md:py-6 mt-8 md:mt-12">
       <div className="container mx-auto text-center px-4">
-        <p className="text-sm">&copy; {new Date().getFullYear()} Jyotiraditya Misra. All rights reserved.</p>
-        <p className="mt-2 text-sm">Follow me on</p>
-        <div className="flex justify-center space-x-6 mt-3 text-sm">
+        <p className="text-xs md:text-sm">&copy; {new Date().getFullYear()} Jyotiraditya Misra. All rights reserved.</p>
+        <p className="mt-2 text-xs md:text-sm">Follow me on</p>
+        <div className="flex justify-center space-x-4 md:space-x-6 mt-3 text-xs md:text-sm">
     
           <a
             href="https://github.com/Jyotiraditiya"

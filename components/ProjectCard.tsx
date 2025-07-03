@@ -32,7 +32,7 @@ export function ProjectCard({
   return (
     <div
       ref={ref}
-      className={`border border-purple-200 p-6 rounded-2xl shadow-lg bg-white dark:bg-black hover:shadow-lg transition mb-6
+      className={`border border-purple-200 p-4 md:p-6 rounded-2xl shadow-lg bg-white dark:bg-black hover:shadow-lg transition mb-4 md:mb-6
         duration-700
         ${visible
           ? index % 2 === 0
@@ -45,8 +45,8 @@ export function ProjectCard({
       `}
       style={{ willChange: "opacity, transform" }}
     >
-      <h3 className="text-xl font-semibold mb-2 text-black dark:text-white">{title}</h3>
-      <p className="text-gray-700 dark:text-gray-300 mb-3">{description}</p>
+      <h3 className="text-lg md:text-xl font-semibold mb-2 text-black dark:text-white">{title}</h3>
+      <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 mb-3">{description}</p>
       {status && (
         <span className="inline-block mb-3 px-3 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
           {status}
@@ -57,7 +57,7 @@ export function ProjectCard({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-purple-700 dark:text-purple-300 hover:underline font-medium"
+          className="text-purple-700 dark:text-purple-300 hover:underline font-medium text-sm md:text-base"
         >
           View Project
         </a>

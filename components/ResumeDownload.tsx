@@ -5,9 +5,9 @@ const ResumeDownload = () => (
   <a
     href="/resume14.pdf"
     download
-    className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition mt-4"
+    className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition text-sm md:text-base text-center"
   >
-    <FiDownload className="text-lg" />
+    <FiDownload className="text-base md:text-lg" />
     Download Resume
   </a>
 );

@@ -108,24 +108,24 @@ const Contact = () => {
 
     return (
         <section
-            className="my-24 max-w-3xl mx-auto animate-fadeIn"
+            className="my-16 md:my-24 max-w-4xl mx-auto px-4 animate-fadeIn"
             id="contact"
         >
-            <div className="flex items-center justify-center mb-6">
-                <FiSend className="text-4xl text-purple-700 animate-bounce" />
+            <div className="flex items-center justify-center mb-4 md:mb-6">
+                <FiSend className="text-3xl md:text-4xl text-purple-700 animate-bounce" />
             </div>
-            <h2 className="text-3xl font-bold text-purple-800 dark:text-black mb-4 transition-colors duration-300 text-center animate-fadeIn">
+            <h2 className="text-2xl md:text-3xl font-bold text-purple-800 dark:text-black mb-4 transition-colors duration-300 text-center animate-fadeIn">
                 Contact
             </h2>
             {/* Contact and Message box side by side */}
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
                 {/* Contact Box */}
-                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
-                    <div className="flex flex-col gap-6">
+                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 animate-fadeInUp mb-0">
+                    <div className="flex flex-col gap-4 md:gap-6">
                         {leftContacts.map((c, i) => (
                             <span
                                 key={c.label}
-                                className="flex items-center gap-3 group transition-all duration-300 animate-slideInLeft"
+                                className="flex items-center gap-2 md:gap-3 group transition-all duration-300 animate-slideInLeft"
                                 style={{
                                     animationDelay: `${i * 0.1}s`,
                                     animationFillMode: 'both',
@@ -135,17 +135,17 @@ const Contact = () => {
                                     href={c.link}
                                     target={c.link.startsWith('http') ? '_blank' : undefined}
                                     rel={c.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                    className="focus:outline-none"
+                                    className="focus:outline-none text-xl md:text-2xl"
                                 >
                                     {c.icon}
                                 </a>
-                                <span>
+                                <span className="text-sm md:text-base">
                                     {c.label}:{' '}
                                     <a
                                         href={c.link}
                                         target={c.link.startsWith('http') ? '_blank' : undefined}
                                         rel={c.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                        className={`${c.color} hover:underline hover:text-purple-800 transition-colors duration-300`}
+                                        className={`${c.color} hover:underline hover:text-purple-800 transition-colors duration-300 break-all`}
                                     >
                                         {c.value}
                                     </a>
@@ -155,7 +155,7 @@ const Contact = () => {
                         {rightContacts.map((c, i) => (
                             <span
                                 key={c.label}
-                                className="flex items-center gap-3 group transition-all duration-300 animate-slideInLeft"
+                                className="flex items-center gap-2 md:gap-3 group transition-all duration-300 animate-slideInLeft"
                                 style={{
                                     animationDelay: `${(i + leftContacts.length) * 0.1}s`,
                                     animationFillMode: 'both',
@@ -165,17 +165,17 @@ const Contact = () => {
                                     href={c.link}
                                     target={c.link.startsWith('http') ? '_blank' : undefined}
                                     rel={c.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                    className="focus:outline-none"
+                                    className="focus:outline-none text-xl md:text-2xl"
                                 >
                                     {c.icon}
                                 </a>
-                                <span>
+                                <span className="text-sm md:text-base">
                                     {c.label}:{' '}
                                     <a
                                         href={c.link}
                                         target={c.link.startsWith('http') ? '_blank' : undefined}
                                         rel={c.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                        className={`${c.color} hover:underline hover:text-purple-800 transition-colors duration-300`}
+                                        className={`${c.color} hover:underline hover:text-purple-800 transition-colors duration-300 break-all`}
                                     >
                                         {c.value}
                                     </a>
@@ -185,8 +185,8 @@ const Contact = () => {
                     </div>
                 </div>
                 {/* Message Box */}
-                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
-                    <h3 className="text-2xl font-semibold text-black dark:text-white mb-4 text-center">
+                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 animate-fadeInUp mb-0">
+                    <h3 className="text-xl md:text-2xl font-semibold text-black dark:text-white mb-4 text-center">
                         Send me a message
                     </h3>
                     {sent ? (

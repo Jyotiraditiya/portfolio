@@ -31,7 +31,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition"
+      className="px-3 md:px-4 py-2 rounded-lg bg-purple-600 text-white font-semibold shadow hover:bg-purple-700 transition text-sm md:text-base min-h-[44px] min-w-[44px] flex items-center justify-center"
       aria-label="Toggle theme"
     >
       {theme === 'light' ? '🌙 ' : '☀️'}

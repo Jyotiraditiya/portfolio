@@ -67,31 +67,31 @@ const Skills = () => {
     }, []);
 
     return (
-        <section id="skills" className="my-24 max-w-5xl mx-auto animate-fadeInUp">
-            <h2 className="text-3xl font-bold text-purple-800 dark:text-black mb-8 text-center">
+        <section id="skills" className="my-16 md:my-24 max-w-6xl mx-auto px-4 animate-fadeInUp">
+            <h2 className="text-2xl md:text-3xl font-bold text-purple-800 dark:text-black mb-6 md:mb-8 text-center">
                 Skills
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                 {/* Core Skills Box */}
                 <div
                     ref={coreRef}
-                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-6 md:p-8 transition-all duration-700 ${
                         coreVisible
                             ? "opacity-100 translate-x-0"
                             : "opacity-0 -translate-x-16"
                     }`}
                 >
-                    <h3 className="text-xl font-semibold text-white mb-4 text-center">Core Skills</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-4 text-center">Core Skills</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 justify-items-center">
                         {skills.map((skill) => (
                             <div
                                 key={skill.name}
                                 className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
                             >
-                                <div className="text-5xl mb-2 group-hover:animate-bounce">
+                                <div className="text-3xl md:text-4xl lg:text-5xl mb-2 group-hover:animate-bounce">
                                     {skill.icon}
                                 </div>
-                                <span className="text-lg font-medium text-white text-center">
+                                <span className="text-sm md:text-base lg:text-lg font-medium text-white text-center">
                                     {skill.name}
                                 </span>
                             </div>
@@ -101,23 +101,23 @@ const Skills = () => {
                 {/* Soft Skills Box (center) */}
                 <div
                     ref={softRef}
-                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-6 md:p-8 transition-all duration-700 ${
                         softVisible
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-16"
                     }`}
                 >
-                    <h3 className="text-xl font-semibold text-white mb-4 text-center">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-4 text-center">
                         Soft Skills
                     </h3>
-                    <div className="grid grid-cols-1 gap-8 justify-items-center">
+                    <div className="grid grid-cols-1 gap-6 md:gap-8 justify-items-center">
                         {softSkills.map((item) => (
                             <div
                                 key={item.label}
                                 className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
                             >
-                                <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
-                                <span className="text-lg font-medium text-white text-center">{item.label}</span>
+                                <div className="mb-2 text-3xl md:text-4xl lg:text-5xl group-hover:animate-bounce">{item.icon}</div>
+                                <span className="text-sm md:text-base lg:text-lg font-medium text-white text-center">{item.label}</span>
                             </div>
                         ))}
                     </div>
@@ -125,21 +125,21 @@ const Skills = () => {
                 {/* Extra Skills Box */}
                 <div
                     ref={extraRef}
-                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-6 md:p-8 transition-all duration-700 ${
                         extraVisible
                             ? "opacity-100 translate-x-0"
                             : "opacity-0 translate-x-16"
                     }`}
                 >
-                    <h3 className="text-xl font-semibold text-white mb-4 text-center">Extra Skills</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-4 text-center">Extra Skills</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6 justify-items-center">
                         {extraSkills.map((item) => (
                             <div
                                 key={item.label}
                                 className="flex flex-col items-center group transition-transform duration-300 hover:scale-105"
                             >
-                                <div className="mb-2 text-5xl group-hover:animate-bounce">{item.icon}</div>
-                                <span className="text-lg font-medium text-white text-center">{item.label}</span>
+                                <div className="mb-2 text-3xl md:text-4xl lg:text-5xl group-hover:animate-bounce">{item.icon}</div>
+                                <span className="text-sm md:text-base lg:text-lg font-medium text-white text-center">{item.label}</span>
                             </div>
                         ))}
                     </div>

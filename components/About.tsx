@@ -54,18 +54,18 @@ const About = () => {
   return (
     <section
       ref={ref}
-      className={`my-24 max-w-3xl mx-auto transition-all duration-700 ${
+      className={`my-16 md:my-24 max-w-4xl mx-auto px-4 transition-all duration-700 ${
         visible
           ? "opacity-100 translate-x-0"
           : "opacity-0 -translate-x-16"
       }`}
     >
-      <h2 className="text-3xl font-bold text-purple-800 mb-4">About Me</h2>
+      <h2 className="text-2xl md:text-3xl font-bold text-purple-800 mb-4 text-center md:text-left">About Me</h2>
       
       {/* About Card */}
       <div 
         ref={cardRef}
-        className={`bg-white dark:bg-black rounded-xl shadow-lg p-8 mb-8 border border-purple-200 transition-all duration-700 ${
+        className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 md:p-8 mb-8 border border-purple-200 transition-all duration-700 ${
           cardVisible
             ? "opacity-100 scale-100"
             : "opacity-0 scale-75"
@@ -75,7 +75,7 @@ const About = () => {
           willChange: 'transform, opacity'
         }}
       >
-        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Hi, I'm Jyotiraditya Misra — a passionate and detail-oriented web developer with hands-on experience in building modern, scalable web applications. I specialize in technologies like React.js, Next.js, Tailwind CSS, and MongoDB, and I enjoy crafting seamless user interfaces with robust backend logic.
           <br />
           <br />
@@ -95,52 +95,52 @@ const About = () => {
       </div>
       
       {/* Location, Education, and Interest Boxes */}
-      <div className="flex flex-col md:flex-row gap-8 mt-8 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
         {/* Location Box */}
         <div 
           ref={locationRef}
-          className={`bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-purple-200 w-64 h-64 flex flex-col items-center justify-center transition-all duration-700 ${
+          className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 md:p-8 border border-purple-200 w-full max-w-sm mx-auto md:mx-0 h-48 md:h-64 flex flex-col items-center justify-center transition-all duration-700 ${
             locationVisible
               ? "opacity-100 translate-x-0"
               : "opacity-0 translate-x-16"
           }`}
         >
-          <h3 className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Location</h3>
-          <p className="text-lg text-gray-700 dark:text-gray-300 text-center">Lucknow, Uttar Pradesh</p>
+          <h3 className="text-xl md:text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Location</h3>
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 text-center">Lucknow, Uttar Pradesh</p>
         </div>
         
         {/* Education Box */}
         <div 
           ref={educationRef}
-          className={`bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-purple-200 w-64 h-64 flex flex-col items-center justify-center transition-all duration-700 ${
+          className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 md:p-8 border border-purple-200 w-full max-w-sm mx-auto md:mx-0 h-48 md:h-64 flex flex-col items-center justify-center transition-all duration-700 ${
             educationVisible
               ? "opacity-100 -translate-x-0"
               : "opacity-0 -translate-x-16"
           }`}
         >
-          <h3 className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Education</h3>
-          <p className="text-lg text-gray-700 dark:text-gray-300 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Education</h3>
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 text-center">
             B.Tech in Computer Science Engineering
             <br />
-            <span className="text-base">Sikkim Manipal Institute of Technology</span>
+            <span className="text-sm md:text-base">Sikkim Manipal Institute of Technology</span>
           </p>
         </div>
         
         {/* Interest Box */}
         <div 
           ref={interestRef}
-          className={`bg-white dark:bg-black rounded-xl shadow-lg p-8 border border-purple-200 w-64 h-64 flex flex-col items-center justify-center transition-all duration-700 ${
+          className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 md:p-8 border border-purple-200 w-full max-w-sm mx-auto md:mx-0 h-48 md:h-64 flex flex-col items-center justify-center transition-all duration-700 ${
             interestVisible
               ? "opacity-100 scale-100"
               : "opacity-0 scale-75"
           }`}
         >
-          <h3 className="text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Interests</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-purple-700 dark:text-purple-300 mb-4 text-center">Interests</h3>
           <div className="text-center text-gray-700 dark:text-gray-300">
-            <p className="text-base mb-1">🚗 Car Enthusiast</p>
-            <p className="text-base mb-1">🎨 Web/UI/UX Designer</p>
-            <p className="text-base mb-1">✈️ Traveller</p>
-            <p className="text-base">📸 Photographer</p>
+            <p className="text-sm md:text-base mb-1">🚗 Car Enthusiast</p>
+            <p className="text-sm md:text-base mb-1">🎨 Web/UI/UX Designer</p>
+            <p className="text-sm md:text-base mb-1">✈️ Traveller</p>
+            <p className="text-sm md:text-base">📸 Photographer</p>
           </div>
         </div>
       </div>

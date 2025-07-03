@@ -12,7 +12,7 @@ import Certification from '../components/Certification';
 import Footer from '../components/Footer';
 export default function Home() {
   return (
-    <main className="space-y-32">
+    <main className="space-y-16 md:space-y-24 lg:space-y-32">
       <Navbar />
       <Hero />
       <About />
@@ -20,9 +20,9 @@ export default function Home() {
       <Certification /> {/* <-- Add this line */}
       <Skills />
       <Experience />
-      <section id="projects" className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-purple-800">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section id="projects" className="max-w-6xl mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-purple-800 text-center">Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <ProjectCard
             title="SPMOS - Smart Parking Management System"
             description="SPMOS (Smart Parking Management & Optimization System) is an intelligent web-based application designed to simplify and optimize urban parking. It leverages real-time data, user-friendly interfaces, and smart algorithms to help users find and reserve parking spots efficiently. Built using modern web technologies, SPMOS reduces traffic congestion and enhances the parking experience for both users and administrators.Role-based access control, optimized slots via Dijkstra’s algorithm."

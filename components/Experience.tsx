@@ -54,16 +54,16 @@ const Experience = () => {
 	}, []);
 
 	return (
-		<section id="experience" className="my-24 max-w-5xl mx-auto animate-fadeInUp">
-			<h2 className="text-3xl font-bold text-purple-800 dark:text-black mb-8 text-center">
+		<section id="experience" className="my-16 md:my-24 max-w-5xl mx-auto px-4 animate-fadeInUp">
+			<h2 className="text-2xl md:text-3xl font-bold text-purple-800 dark:text-black mb-6 md:mb-8 text-center">
 				Experience
 			</h2>
-			<div className="flex flex-col gap-8">
+			<div className="flex flex-col gap-6 md:gap-8">
 				{experiences.map((exp, idx) => (
 					<div
 						key={idx}
 						ref={(el) => { refs.current[idx] = el; }}
-						className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 border border-purple-200 transition-all duration-700 hover:shadow-lg
+						className={`bg-white dark:bg-black rounded-xl shadow-lg p-4 md:p-6 border border-purple-200 transition-all duration-700 hover:shadow-lg
               ${visible[idx]
 								? idx % 2 === 0
 									? 'opacity-100 translate-x-0'
@@ -75,18 +75,18 @@ const Experience = () => {
             `}
 						style={{ willChange: 'opacity, transform' }}
 					>
-						<h3 className="text-xl font-semibold text-black dark:text-white mb-1">
+						<h3 className="text-lg md:text-xl font-semibold text-black dark:text-white mb-1">
 							{exp.role}
 						</h3>
 						<div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-							<span className="text-lg text-black dark:text-white">
+							<span className="text-base md:text-lg text-black dark:text-white">
 								{exp.company}
 							</span>
 							<span className="text-sm text-gray-700 dark:text-gray-300">
 								{exp.period}
 							</span>
 						</div>
-						<p className="text-black dark:text-white">
+						<p className="text-sm md:text-base text-black dark:text-white">
 							{exp.description}
 						</p>
 					</div>
