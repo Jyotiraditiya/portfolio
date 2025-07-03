@@ -30,9 +30,11 @@ const About = () => {
     >
       <h2 className="text-3xl font-bold text-purple-800 mb-4">About Me</h2>
       <p className="text-lg text-gray-700">
-        I’m Jyotiraditya Misra, a passionate full-stack developer skilled in
-        React.js, Next.js, Tailwind CSS, and MongoDB. I love building clean,
-        responsive web apps and solving real-world problems through code.
+        Hi, I’m Jyotiraditya Misra — a passionate and detail-oriented web developer with hands-on experience in building modern, scalable web applications. I specialize in technologies like React.js, Next.js, Tailwind CSS, and MongoDB, and I enjoy crafting seamless user interfaces with robust backend logic.
+
+Currently pursuing a B.Tech in Computer Science Engineering at Sikkim Manipal Institute of Technology, I’ve applied my skills in real-world projects like an AI-powered Event Planner and a Smart Parking Management System. 
+
+I thrive on solving complex problems, embracing new challenges, and continuously learning. Whether it’s designing a responsive UI or optimizing backend performance, I aim to deliver elegant, efficient, and user-focused solutions.
         <br />
         <br />
         With experience at Prodigy InfoTech and virtual training from Wells Fargo,
