@@ -4,7 +4,7 @@ import React from 'react';
 
 const Education = () => {
   return (
-    <section className="bg-white dark:bg-black p-8 rounded-2xl shadow-lg my-8 max-w-3xl mx-auto animate-slideInTop">
+    <section className="bg-white dark:bg-black border border-purple-200 p-8 rounded-2xl shadow-lg my-8 max-w-3xl mx-auto animate-slideInTop">
       <h2 className="text-2xl font-bold mb-6 text-purple-800 dark:text-white text-center">Education</h2>
 
       <div className="mb-6">

@@ -32,7 +32,7 @@ export function ProjectCard({
   return (
     <div
       ref={ref}
-      className={`border border-gray-800 p-6 rounded-2xl shadow-sm bg-white dark:bg-black hover:shadow-lg transition mb-6
+      className={`border border-purple-200 p-6 rounded-2xl shadow-lg bg-white dark:bg-black hover:shadow-lg transition mb-6
         duration-700
         ${visible
           ? index % 2 === 0

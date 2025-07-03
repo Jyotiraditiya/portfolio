@@ -9,6 +9,7 @@ import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Education from '../components/Education'; // <-- Add this line
 import Certification from '../components/Certification';
+import Footer from '../components/Footer';
 export default function Home() {
   return (
     <main className="space-y-32">
@@ -59,6 +60,7 @@ Plan smarter. Celebrate better."
         </div>
       </section>
       <Contact />
+      <Footer />
     </main>
   );
 }

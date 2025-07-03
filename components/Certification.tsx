@@ -79,7 +79,7 @@ const Certification = () => (
 				<li
 					key={idx}
 					className={`
-						bg-white/80 dark:bg-gray-900 rounded-xl p-4 shadow
+						bg-white/80 dark:bg-gray-900 border border-purple-200 rounded-xl p-4 shadow-lg
 						${idx % 2 === 0 ? 'animate-slideInRight' : 'animate-slideInLeft'}
 					`}
 					style={{

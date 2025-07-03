@@ -74,6 +74,7 @@ const Contact = () => {
         setError('');
 
         try {
+            console.log('Submitting form:', form);
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -82,15 +83,19 @@ const Contact = () => {
                 body: JSON.stringify(form),
             });
 
+            console.log('Response status:', response.status);
+            const data = await response.json();
+            console.log('Response data:', data);
+
             if (response.ok) {
                 setSent(true);
                 setForm({ name: '', email: '', message: '' });
             } else {
-                const data = await response.json();
-                setError(data.error || 'Failed to send message');
+                setError(data.error || `Failed to send message (${response.status})`);
             }
         } catch (err) {
-            setError('Network error. Please try again.');
+            console.error('Network error:', err);
+            setError(`Network error: ${err instanceof Error ? err.message : 'Please try again.'}`);
         } finally {
             setLoading(false);
         }
@@ -115,7 +120,7 @@ const Contact = () => {
             {/* Contact and Message box side by side */}
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Contact Box */}
-                <div className="flex-1 bg-white dark:bg-black rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
+                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
                     <div className="flex flex-col gap-6">
                         {leftContacts.map((c, i) => (
                             <span
@@ -180,7 +185,7 @@ const Contact = () => {
                     </div>
                 </div>
                 {/* Message Box */}
-                <div className="flex-1 bg-white dark:bg-black rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
+                <div className="flex-1 bg-white dark:bg-black border border-purple-200 rounded-2xl shadow-lg p-8 animate-fadeInUp mb-0">
                     <h3 className="text-2xl font-semibold text-black dark:text-white mb-4 text-center">
                         Send me a message
                     </h3>

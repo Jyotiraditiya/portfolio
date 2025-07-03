@@ -7,14 +7,7 @@ const Footer: React.FC = () => {
         <p className="text-sm">&copy; {new Date().getFullYear()} Jyotiraditya Misra. All rights reserved.</p>
         <p className="mt-2 text-sm">Follow me on</p>
         <div className="flex justify-center space-x-6 mt-3 text-sm">
-          <a
-            href="https://twitter.com" // (Update if you have a real handle)
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-400 transition-colors"
-          >
-            Twitter
-          </a>
+    
           <a
             href="https://github.com/Jyotiraditiya"
             target="_blank"

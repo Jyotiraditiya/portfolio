@@ -63,7 +63,7 @@ const Experience = () => {
 					<div
 						key={idx}
 						ref={(el) => { refs.current[idx] = el; }}
-						className={`bg-white dark:bg-black rounded-xl shadow p-6 transition-all duration-700 hover:shadow-lg
+						className={`bg-white dark:bg-black rounded-xl shadow-lg p-6 border border-purple-200 transition-all duration-700 hover:shadow-lg
               ${visible[idx]
 								? idx % 2 === 0
 									? 'opacity-100 translate-x-0'

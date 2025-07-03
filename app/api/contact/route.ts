@@ -3,16 +3,29 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('Contact API called');
     const { name, email, message } = await request.json();
+    console.log('Form data received:', { name, email, messageLength: message?.length });
 
     // Validate required fields
     if (!name || !email || !message) {
+      console.log('Missing required fields');
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
+    // Check environment variables
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.log('Missing environment variables');
+      return NextResponse.json(
+        { error: 'Server configuration error' },
+        { status: 500 }
+      );
+    }
+
+    console.log('Creating transporter...');
     // Create transporter using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -21,6 +34,11 @@ export async function POST(request: NextRequest) {
         pass: process.env.GMAIL_APP_PASSWORD,
       },
     });
+
+    // Test the transporter
+    console.log('Verifying transporter...');
+    await transporter.verify();
+    console.log('Transporter verified successfully');
 
     // Email content
     const mailOptions = {
@@ -52,7 +70,9 @@ export async function POST(request: NextRequest) {
     };
 
     // Send email
+    console.log('Sending email...');
     await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully');
 
     return NextResponse.json(
       { message: 'Email sent successfully' },
@@ -62,7 +82,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { error: `Failed to send email: ${error instanceof Error ? error.message : 'Unknown error'}` },
       { status: 500 }
     );
   }

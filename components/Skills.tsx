@@ -75,7 +75,7 @@ const Skills = () => {
                 {/* Core Skills Box */}
                 <div
                     ref={coreRef}
-                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
                         coreVisible
                             ? "opacity-100 translate-x-0"
                             : "opacity-0 -translate-x-16"
@@ -101,7 +101,7 @@ const Skills = () => {
                 {/* Soft Skills Box (center) */}
                 <div
                     ref={softRef}
-                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
                         softVisible
                             ? "opacity-100 translate-y-0"
                             : "opacity-0 translate-y-16"
@@ -125,7 +125,7 @@ const Skills = () => {
                 {/* Extra Skills Box */}
                 <div
                     ref={extraRef}
-                    className={`bg-black rounded-2xl shadow-lg p-8 transition-all duration-700 ${
+                    className={`bg-black rounded-2xl shadow-lg border border-purple-200 p-8 transition-all duration-700 ${
                         extraVisible
                             ? "opacity-100 translate-x-0"
                             : "opacity-0 translate-x-16"
