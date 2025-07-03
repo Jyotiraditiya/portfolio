@@ -190,14 +190,33 @@ const Contact = () => {
                         Send me a message
                     </h3>
                     {sent ? (
-                        <div className="text-green-400 text-center font-semibold py-4 animate-fadeIn">
-                            Thank you for reaching out! I will get back to you soon.
+                        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 text-center animate-fadeIn">
+                            <div className="text-green-600 dark:text-green-400 text-lg font-semibold mb-2">
+                                ✅ Message Sent Successfully!
+                            </div>
+                            <div className="text-green-700 dark:text-green-300 text-sm">
+                                Thank you for reaching out! I'll get back to you soon.
+                            </div>
                         </div>
                     ) : (
                         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                             {error && (
-                                <div className="text-red-400 text-center font-semibold py-2 animate-fadeIn">
-                                    {error}
+                                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 animate-fadeIn">
+                                    <div className="text-red-600 dark:text-red-400 text-sm mb-2">
+                                        <strong>Message not sent:</strong>
+                                    </div>
+                                    <div className="text-red-500 dark:text-red-300 text-sm mb-3">
+                                        {error}
+                                    </div>
+                                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                                        Don't worry! You can reach me directly at{' '}
+                                        <a 
+                                            href="mailto:misrajyotiraditya@gmail.com" 
+                                            className="text-purple-600 dark:text-purple-300 hover:underline font-medium"
+                                        >
+                                            misrajyotiraditya@gmail.com
+                                        </a>
+                                    </div>
                                 </div>
                             )}
                             <input
