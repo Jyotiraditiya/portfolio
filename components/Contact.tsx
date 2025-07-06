@@ -91,11 +91,14 @@ const Contact = () => {
                 setSent(true);
                 setForm({ name: '', email: '', message: '' });
             } else {
-                setError(data.error || `Failed to send message (${response.status})`);
+                // Show a more user-friendly error message
+                const errorMessage = data.error || `Failed to send message (${response.status})`;
+                setError(errorMessage);
             }
         } catch (err) {
             console.error('Network error:', err);
-            setError(`Network error: ${err instanceof Error ? err.message : 'Please try again.'}`);
+            // Simplified error message for network issues
+            setError('Unable to send message at the moment. Please use the direct email option below.');
         } finally {
             setLoading(false);
         }
@@ -202,20 +205,34 @@ const Contact = () => {
                         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                             {error && (
                                 <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 animate-fadeIn">
-                                    <div className="text-red-600 dark:text-red-400 text-sm mb-2">
-                                        <strong>Message not sent:</strong>
+                                    <div className="text-red-600 dark:text-red-400 text-sm font-medium mb-2">
+                                        ⚠️ Message Could Not Be Sent
                                     </div>
                                     <div className="text-red-500 dark:text-red-300 text-sm mb-3">
-                                        {error}
+                                        {error.includes('Server configuration') || error.includes('Missing email credentials') 
+                                            ? 'Email service is temporarily unavailable.'
+                                            : error}
                                     </div>
-                                    <div className="text-xs text-gray-600 dark:text-gray-400">
-                                        Don't worry! You can reach me directly at{' '}
-                                        <a 
-                                            href="mailto:misrajyotiraditya@gmail.com" 
-                                            className="text-purple-600 dark:text-purple-300 hover:underline font-medium"
+                                    <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded p-3">
+                                        <div className="text-blue-800 dark:text-blue-300 text-sm font-medium mb-1">
+                                            📧 Alternative Contact Method:
+                                        </div>
+                                        <div className="text-blue-700 dark:text-blue-200 text-sm">
+                                            Please email me directly at{' '}
+                                            <a 
+                                                href="mailto:misrajyotiraditya@gmail.com?subject=Portfolio Contact&body=Hi Jyotiraditya,%0D%0A%0D%0A[Your message here]%0D%0A%0D%0AFrom: [Your name]" 
+                                                className="text-blue-600 dark:text-blue-300 hover:underline font-medium inline-flex items-center gap-1"
+                                            >
+                                                misrajyotiraditya@gmail.com
+                                                <FaEnvelope className="text-xs" />
+                                            </a>
+                                        </div>
+                                        <button
+                                            onClick={() => setError('')}
+                                            className="mt-2 text-xs text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 underline"
                                         >
-                                            misrajyotiraditya@gmail.com
-                                        </a>
+                                            Try sending again
+                                        </button>
                                     </div>
                                 </div>
                             )}
@@ -257,10 +274,10 @@ const Contact = () => {
                                 {loading ? 'Sending...' : 'Send Message'}
                             </button>
                             <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400 text-center mt-2">
-                                Having trouble? Email me directly at{' '}
+                                💡 Prefer email? Contact me directly at{' '}
                                 <a 
-                                    href="mailto:misrajyotiraditya@gmail.com" 
-                                    className="text-purple-600 dark:text-purple-300 hover:underline"
+                                    href="mailto:misrajyotiraditya@gmail.com?subject=Portfolio Contact&body=Hi Jyotiraditya,%0D%0A%0D%0A[Your message here]%0D%0A%0D%0AFrom: [Your name]" 
+                                    className="text-purple-600 dark:text-purple-300 hover:underline font-medium"
                                 >
                                     misrajyotiraditya@gmail.com
                                 </a>

@@ -30,13 +30,18 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Creating transporter...');
-    // Create transporter using Gmail SMTP
+    // Create transporter using Gmail SMTP with explicit settings
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD,
       },
+      tls: {
+        ciphers: 'SSLv3'
+      }
     });
 
     // Test the transporter
