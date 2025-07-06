@@ -17,9 +17,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Check environment variables
-    console.log('Checking environment variables...');
+    console.log('Environment check...');
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    console.log('VERCEL:', process.env.VERCEL);
     console.log('GMAIL_USER exists:', !!process.env.GMAIL_USER);
     console.log('GMAIL_APP_PASSWORD exists:', !!process.env.GMAIL_APP_PASSWORD);
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log('GMAIL_USER value:', process.env.GMAIL_USER);
+      console.log('GMAIL_APP_PASSWORD length:', process.env.GMAIL_APP_PASSWORD?.length);
+    }
     
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       console.log('Missing environment variables');
@@ -30,32 +37,20 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Creating transporter...');
-    // Create transporter using Gmail SMTP with explicit settings
+    // Create transporter using Gmail service (optimized for serverless)
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      service: 'gmail',
       auth: {
         user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
+        pass: process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, ''), // Remove any spaces
       },
-      tls: {
-        ciphers: 'SSLv3'
-      }
+      pool: true, // Use connection pooling
+      maxConnections: 1,
+      maxMessages: 3,
     });
 
-    // Test the transporter
-    console.log('Verifying transporter...');
-    try {
-      await transporter.verify();
-      console.log('Transporter verified successfully');
-    } catch (verifyError) {
-      console.error('Transporter verification failed:', verifyError);
-      return NextResponse.json(
-        { error: 'Email service temporarily unavailable. Please contact directly at misrajyotiraditya@gmail.com' },
-        { status: 500 }
-      );
-    }
+    // Skip verification in production to avoid cold start issues
+    console.log('Skipping verification, attempting direct send...');
 
     // Email content
     const mailOptions = {
@@ -102,10 +97,17 @@ export async function POST(request: NextRequest) {
     // Provide more specific error messages
     let errorMessage = 'Failed to send email';
     if (error instanceof Error) {
-      if (error.message.includes('Invalid login')) {
+      console.error('Error details:', {
+        message: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      });
+      
+      if (error.message.includes('Invalid login') || error.message.includes('534')) {
         errorMessage = 'Email service authentication failed. Please contact directly at misrajyotiraditya@gmail.com';
       } else if (error.message.includes('ENOTFOUND') || error.message.includes('ECONNREFUSED')) {
         errorMessage = 'Network connection failed. Please try again or contact directly at misrajyotiraditya@gmail.com';
+      } else if (error.message.includes('timeout')) {
+        errorMessage = 'Email service timeout. Please try again or contact directly at misrajyotiraditya@gmail.com';
       } else {
         errorMessage = `Email service temporarily unavailable. Please contact directly at misrajyotiraditya@gmail.com`;
       }

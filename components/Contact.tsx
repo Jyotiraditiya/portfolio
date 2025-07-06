@@ -90,6 +90,8 @@ const Contact = () => {
             if (response.ok) {
                 setSent(true);
                 setForm({ name: '', email: '', message: '' });
+                // Auto-hide success message after 5 seconds
+                setTimeout(() => setSent(false), 5000);
             } else {
                 // Show a more user-friendly error message
                 const errorMessage = data.error || `Failed to send message (${response.status})`;
