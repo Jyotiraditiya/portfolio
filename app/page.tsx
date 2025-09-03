@@ -12,14 +12,12 @@ import Certification from '../components/Certification';
 import Footer from '../components/Footer';
 import AnimatedSection from '../components/AnimatedSection';
 import SectionIndicator from '../components/SectionIndicator';
-import SettingsPanel from '../components/SettingsPanel';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <SectionIndicator />
-      <SettingsPanel />
       
       {/* Mobile Layout */}
       <div className="block lg:hidden">

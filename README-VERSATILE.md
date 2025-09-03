@@ -10,13 +10,6 @@ A modern, highly customizable portfolio website built with Next.js, React, and T
 - **Dark/Light Mode**: Seamless switching with system preference detection
 - **Persistent Settings**: Your preferences are saved locally
 
-### ⚙️ **Customization Panel**
-- **Live Theme Switching**: Change colors instantly without page reload
-- **Layout Spacing Options**: Compact, Comfortable, or Spacious layouts
-- **Animation Controls**: Enable/disable animations for accessibility
-- **Language Support**: Framework ready for internationalization
-- **Settings Persistence**: All preferences saved in localStorage
-
 ### 📱 **Enhanced Project Management**
 - **Advanced Project Cards**: Featured projects, status indicators, tags
 - **Smart Filtering**: Filter by status (completed, in-progress, planning)
@@ -107,7 +100,6 @@ portfolio/
 │   ├── page.tsx           # Main page
 │   └── globals.css        # Global styles
 ├── components/            # Reusable components
-│   ├── SettingsPanel.tsx  # Customization panel
 │   ├── ProjectsSection.tsx # Advanced project display
 │   ├── ProjectCard.tsx    # Enhanced project cards
 │   └── ...               # Other components
