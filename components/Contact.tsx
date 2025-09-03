@@ -38,7 +38,7 @@ const contacts = [
             <FaGithub className="text-[#181717] group-hover:scale-110 transition-transform duration-300" />
         ),
         label: 'GitHub',
-        value: 'Jyotiraditiya',
+        value: 'JYOTIRADITIYA MISRA',
         link: 'https://github.com/Jyotiraditiya',
         color: 'text-[#181717]',
     },
@@ -47,7 +47,7 @@ const contacts = [
             <SiLeetcode className="text-[#FFA116] group-hover:scale-110 transition-transform duration-300" />
         ),
         label: 'LeetCode',
-        value: 'jyotiraditiyamisra',
+        value: 'JYOTIRADITIYA MISRA',
         link: 'https://leetcode.com/jyotiraditiya_misra1',
         color: 'text-[#FFA116]',
     },
@@ -56,7 +56,7 @@ const contacts = [
             <FaTwitter className="text-[#1DA1F2] group-hover:scale-110 transition-transform duration-300" />
         ),
         label: 'Twitter',
-        value: 'jyotimisra_',
+        value: 'JYOTIRADITIYA MISRA',
         link: 'https://x.com/jyotiradit73632?s=21',
         color: 'text-[#1DA1F2]',
     },

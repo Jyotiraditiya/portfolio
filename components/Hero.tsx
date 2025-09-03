@@ -33,7 +33,7 @@ const Hero = () => (
         JYOTIRADITIYA MISRA
       </h1>
       <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 md:mb-8 max-w-xl mx-auto md:mx-0">
-        I design and develop elegant, scalable digital experiences with React, Next.js, and cutting-edge web technologies.
+       FULLSTACK DEVELOPER | FRONTEND DEVELOPER
       </p>
       <div className="flex flex-col sm:flex-row gap-4 mb-4 justify-center md:justify-start">
         <a

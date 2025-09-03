@@ -132,19 +132,19 @@ export async function POST(req: NextRequest) {
       
       // Categorize different error types for better debugging
       if (error.message.includes('Invalid login') || (error as any).code === 'EAUTH') {
-        errorMessage = 'Gmail authentication failed. Please check GMAIL_USER and GMAIL_APP_PASSWORD';
+        errorMessage = 'Email service temporarily unavailable. Please use direct email contact below.';
         errorCode = 'AUTH_ERROR';
         console.log('🔑 Authentication issue detected - check Gmail credentials');
       } else if (error.message.includes('ENOTFOUND') || error.message.includes('ECONNREFUSED')) {
-        errorMessage = 'Network connection failed. Please try again';
+        errorMessage = 'Network connection failed. Please try again or use direct email contact.';
         errorCode = 'NETWORK_ERROR';
         console.log('🌐 Network connectivity issue detected');
       } else if (error.message.includes('timeout') || error.message.includes('ETIMEDOUT')) {
-        errorMessage = 'Email service timeout. Please try again';
+        errorMessage = 'Email service timeout. Please try again or use direct email contact.';
         errorCode = 'TIMEOUT_ERROR';
         console.log('⏰ Timeout issue detected');
       } else if ((error as any).responseCode === 535) {
-        errorMessage = 'Gmail login credentials rejected. Please verify app password';
+        errorMessage = 'Email service temporarily unavailable. Please contact directly via email.';
         errorCode = 'CREDENTIALS_REJECTED';
         console.log('🔐 Gmail credentials rejected - verify app password');
       }

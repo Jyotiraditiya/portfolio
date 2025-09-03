@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import our theme styles */
+@import '../styles/themes.css';
+
 /* Global Styles */
 body {
   @apply text-gray-900 bg-white;
@@ -234,6 +237,12 @@ html.dark,
   color: #fff !important;
 }
 
+/* Dark mode body styles */
+.dark body {
+  color: rgb(243 244 246);
+  background-color: rgb(17 24 39);
+}
+
 /* Mobile Specific Improvements */
 @media (max-width: 640px) {
   /* Ensure text doesn't overflow on small screens */
@@ -311,5 +320,32 @@ html.dark,
   /* Prevent text overflow */
   .text-3xl, .text-4xl, .text-5xl, .text-6xl {
     line-height: 1.2;
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Better transitions for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
