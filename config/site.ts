@@ -88,7 +88,7 @@ export const siteConfig: SiteConfig = {
     image: "/jyotiraditya.jpg",
     bio: "Full Stack Developer with expertise in modern web technologies, passionate about creating scalable and user-friendly applications.",
     location: "Your Location", // Update with your location
-    resume: "/jyotiraditiyaResume 2.pdf",
+    resume: "/Jyotiraditiya_Misra (1).pdf",
   },
   navigation: [
     {
