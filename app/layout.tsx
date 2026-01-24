@@ -1,5 +1,3 @@
-// app/layout.tsx
-
 import './globals.css';
 import '../styles/themes.css';
 import type { Metadata, Viewport } from 'next';
