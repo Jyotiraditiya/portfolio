@@ -54,6 +54,14 @@ const certifications = [
 		link: "https://coursera.org/verify/7O755OJPO1S9",
 		description: "Successfully completed an online non-credit course authorized by DeepLearning.AI and offered through Coursera.",
 	},
+	{
+		title: "GENERATIVE AI",
+		issuer: "IBM(Coursera)",
+		date: "",
+		name: "Jyotiraditya Misra",
+		link: "https://coursera.org/verify/specialization/UXOI2EWXA5GF",
+		description: "Successfully completed an online non-credit course authorized by IBM and offered through Coursera.",
+	},
 	
 ];
 
