@@ -19,12 +19,11 @@
   "license": "MIT",
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "@types/nodemailer": "^6.4.17",
     "autoprefixer": "^10.4.15",
     "framer-motion": "^12.20.2",
     "next": "^14.1.0",
     "next-themes": "^0.4.6",
-    "nodemailer": "^7.0.4",
+    "nodemailer": "^7.0.13",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,6 +33,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.8",
+    "@types/nodemailer": "^7.0.11",
     "@types/react": "^19.1.8",
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",

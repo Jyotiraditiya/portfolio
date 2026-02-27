@@ -1,9 +1,11 @@
-// app/page.tsx
+"use client";
 
+import React, { useState, FormEvent } from 'react';
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import Hero from '@/components/Hero';
 import About from '../components/About';
-import Contact from '../components/Contact';
+import Contact from '@/components/Contact';
+import Projects from '@/components/Projects';
 import ProjectsSection from '../components/ProjectsSection';
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
@@ -14,100 +16,41 @@ import AnimatedSection from '../components/AnimatedSection';
 import SectionIndicator from '../components/SectionIndicator';
 
 export default function Home() {
-  return (
-    <main className="min-h-screen">
-      <Navbar />
-      <SectionIndicator />
-      
-      {/* Mobile Layout */}
-      <div className="block lg:hidden">
-        <div className="space-y-16 px-4">
-          <AnimatedSection animationType="fadeIn" delay={0.1}>
-            <div id="hero">
-              <Hero />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.2}>
-            <div id="about">
-              <About />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideRight" delay={0.3}>
-            <div id="education">
-              <Education />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.4}>
-            <Certification />
-          </AnimatedSection>
-          <AnimatedSection animationType="slideLeft" delay={0.5}>
-            <div id="skills">
-              <Skills />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideLeft" delay={0.6}>
-            <div id="experience">
-              <Experience />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="scaleIn" delay={0.7}>
-            <ProjectsSection />
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.8}>
-            <div id="contact">
-              <Contact />
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
-      {/* Desktop/Tablet Layout */}
-      <div className="hidden lg:block">
-        <div className="space-y-24 xl:space-y-32">
-          <AnimatedSection animationType="fadeIn" delay={0.1}>
-            <div id="hero-desktop">
-              <Hero />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.2}>
-            <div id="about-desktop">
-              <About />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideLeft" delay={0.3}>
-            <div id="education-desktop">
-              <Education />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideRight" delay={0.4}>
-            <div id="certification-desktop">
-              <Certification />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideRight" delay={0.5}>
-            <div id="skills-desktop">
-              <Skills />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.6}>
-            <div id="experience-desktop">
-              <Experience />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection animationType="scaleIn" delay={0.7}>
-            <ProjectsSection />
-          </AnimatedSection>
-          <AnimatedSection animationType="slideUp" delay={0.8}>
-            <div id="contact-desktop">
-              <Contact />
-            </div>
-          </AnimatedSection>
-        </div>
-      </div>
-      
-      <AnimatedSection animationType="fadeIn" delay={0.9}>
-        <Footer />
-      </AnimatedSection>
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setStatus('success');
+      setForm({ name: '', email: '', message: '' });
+    } catch (err: unknown) {
+      setStatus('error');
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to send message.');
+    }
+  };
+
+  return (
+    <main>
+      <Hero />
+      <Projects />
+      <Contact />
     </main>
   );
 }
