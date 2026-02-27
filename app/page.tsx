@@ -5,8 +5,7 @@ import Navbar from '../components/Navbar';
 import Hero from '@/components/Hero';
 import About from '../components/About';
 import Contact from '@/components/Contact';
-import Projects from '@/components/Projects';
-import ProjectsSection from '../components/ProjectsSection';
+import ProjectsSection from "@/components/ProjectsSection";
 import Skills from '../components/Skills';
 import Experience from '../components/Experience';
 import Education from '../components/Education';
@@ -49,7 +48,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Projects />
+      <ProjectsSection />
       <Contact />
     </main>
   );
