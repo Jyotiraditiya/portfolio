@@ -9,9 +9,15 @@ export default function Header() {
 
       {/* Left Nav */}
       <nav className="hidden md:flex gap-6 text-gray-300">
-        <Link href="#about" className="hover:text-white transition">About</Link>
-        <Link href="#skills" className="hover:text-white transition">Skills</Link>
-        <Link href="#projects" className="hover:text-white transition">Projects</Link>
+        <Link href="#about" scroll={true} className="hover:text-white transition">
+          About
+        </Link>
+        <Link href="#skills" scroll={true} className="hover:text-white transition">
+          Skills
+        </Link>
+        <Link href="#projects" scroll={true} className="hover:text-white transition">
+          Projects
+        </Link>
       </nav>
 
       {/* Center Name */}
@@ -30,9 +36,15 @@ export default function Header() {
 
       {/* Right Nav */}
       <nav className="hidden md:flex gap-6 text-gray-300">
-        <Link href="#certifications" className="hover:text-white transition">Certifications</Link>
-        <Link href="#experience" className="hover:text-white transition">Experience</Link>
-        <Link href="#contact" className="hover:text-white transition">Contact</Link>
+        <Link href="#certifications" scroll={true} className="hover:text-white transition">
+          Certifications
+        </Link>
+        <Link href="#experience" scroll={true} className="hover:text-white transition">
+          Experience
+        </Link>
+        <Link href="#contact" scroll={true} className="hover:text-white transition">
+          Contact
+        </Link>
       </nav>
 
     </header>

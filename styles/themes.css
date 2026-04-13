@@ -1,0 +1,120 @@
+/* styles/themes.css */
+
+/* Theme Color Variables */
+:root {
+  --color-primary: #8B5CF6;
+  --color-secondary: #A855F7;
+  --color-accent: #C084FC;
+}
+
+/* Purple Theme */
+[data-theme="purple"] {
+  --color-primary: #8B5CF6;
+  --color-secondary: #A855F7;
+  --color-accent: #C084FC;
+}
+
+/* Blue Theme */
+[data-theme="blue"] {
+  --color-primary: #3B82F6;
+  --color-secondary: #1D4ED8;
+  --color-accent: #60A5FA;
+}
+
+/* Green Theme */
+[data-theme="green"] {
+  --color-primary: #10B981;
+  --color-secondary: #059669;
+  --color-accent: #34D399;
+}
+
+/* Orange Theme */
+[data-theme="orange"] {
+  --color-primary: #F97316;
+  --color-secondary: #EA580C;
+  --color-accent: #FB923C;
+}
+
+/* Pink Theme */
+[data-theme="pink"] {
+  --color-primary: #EC4899;
+  --color-secondary: #DB2777;
+  --color-accent: #F472B6;
+}
+
+/* Theme color buttons */
+[data-theme-color="#8B5CF6"] { background-color: #8B5CF6; }
+[data-theme-color="#3B82F6"] { background-color: #3B82F6; }
+[data-theme-color="#10B981"] { background-color: #10B981; }
+[data-theme-color="#F97316"] { background-color: #F97316; }
+[data-theme-color="#EC4899"] { background-color: #EC4899; }
+
+/* Layout Spacing */
+[data-layout="compact"] {
+  --spacing-section: 1rem;
+  --spacing-element: 0.5rem;
+}
+
+[data-layout="comfortable"] {
+  --spacing-section: 1.5rem;
+  --spacing-element: 1rem;
+}
+
+[data-layout="spacious"] {
+  --spacing-section: 2rem;
+  --spacing-element: 1.5rem;
+}
+
+/* Reduce Motion */
+.reduce-motion,
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Focus styles */
+.focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-effect {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
