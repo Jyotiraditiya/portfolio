@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --matte-black: #0b0b0b;
+  --accent: #00e5ff;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body{
+  background: linear-gradient(180deg, var(--matte-black) 0%, #070707 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* glossy card */
+.card-glossy{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}

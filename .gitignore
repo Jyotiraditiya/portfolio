@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env.local
+.env.*.local
+.DS_Store
+dist/
+coverage/
+
+# MacOS
+*.DS_Store
