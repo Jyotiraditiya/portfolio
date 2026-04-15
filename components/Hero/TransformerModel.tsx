@@ -11,10 +11,9 @@ type Props = {
 
 export default function TransformerModel({ onLoad }: Props) {
   const group = useRef<THREE.Group | null>(null)
-  const opacityRef = useRef(0)
 
   // Load GLTF model
-  const gltf = useGLTF('/models/transformer.glb') as any
+  const gltf = useGLTF('/models/transformer.glb', true) as any
   const { scene, animations } = gltf || {}
 
   useEffect(() => {
@@ -22,7 +21,8 @@ export default function TransformerModel({ onLoad }: Props) {
     scene.traverse((obj: any) => {
       if (obj.isMesh && obj.material) {
         obj.material.transparent = true
-        obj.material.opacity = 0
+        obj.material.opacity = 1
+        obj.frustumCulled = true
       }
     })
   }, [scene])
@@ -56,28 +56,17 @@ export default function TransformerModel({ onLoad }: Props) {
     }
   }, [onLoad, scene])
 
-  // Subtle rotation and fade-in
+  // Subtle rotation
   useFrame((state, delta) => {
     if (group.current) {
       group.current.rotation.y += delta * 0.12
-    }
-
-    // fade-in effect
-    if (scene && opacityRef.current < 1) {
-      opacityRef.current += delta * 0.5
-
-      scene.traverse((obj: any) => {
-        if (obj.isMesh && obj.material) {
-          obj.material.opacity = Math.min(opacityRef.current, 1)
-        }
-      })
     }
   })
 
   // Fallback if model fails
   if (!gltf || !gltf.scene) {
     return (
-      <group ref={group} scale={[3.5, 3.5, 3.5]} position={[-0.7, -1.6, 0]}>
+      <group ref={group} scale={[3.5, 3.5, 3.5]} position={[-0.7, -1.9, 0]}>
         <mesh rotation={[0, Math.PI / 8, 0]}>
           <boxGeometry args={[4.5, 2.8, 8]} />
           <meshStandardMaterial
@@ -91,10 +80,12 @@ export default function TransformerModel({ onLoad }: Props) {
   }
 
   return (
-    <group ref={group} dispose={null} scale={[3.5,3.5,3.5]} position={[-0.7,-1.6,0]} rotation={[0,-0.5,0]}>
+    <group ref={group} dispose={null} scale={[3,3,3]} position={[-0.7,-1.9,0]} rotation={[0,-0.5,0]}>
       <primitive object={scene} />
     </group>
   )
 }
 
-useGLTF.preload('/models/transformer.glb')
+if (typeof window !== 'undefined') {
+  useGLTF.preload('/models/transformer.glb')
+}

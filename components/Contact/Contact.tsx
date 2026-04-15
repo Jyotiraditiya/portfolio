@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import axios from 'axios'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
 
 export default function Contact(){
@@ -10,10 +10,18 @@ export default function Contact(){
   async function handleSubmit(e:any){
     e.preventDefault()
     try{
-      await axios.post('/api/contact', form)
+      await axios.post('/api/contact', {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },{
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
       setSent(true)
-    }catch(e){
-      console.error(e)
+    }catch(err){
+      console.error('SMTP Error:', err)
     }
   }
   return (
@@ -35,6 +43,54 @@ export default function Contact(){
           )}
         </div>
 
+        {/* Contact Dashboard */}
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+
+          {/* GitHub */}
+          <a href="https://github.com/Jyotiraditiya" target="_blank" className="group card-glossy p-5 rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow flex flex-col items-center justify-center text-white hover:scale-105 transition-all duration-300">
+            <FaGithub className="text-2xl mb-2 group-hover:scale-110 transition" />
+            <span className="text-sm text-gray-300 group-hover:text-white">GitHub</span>
+          </a>
+
+          {/* LinkedIn */}
+          <a href="https://linkedin.com/in/" target="_blank" className="group card-glossy p-5 rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow flex flex-col items-center justify-center text-white hover:scale-105 transition-all duration-300">
+            <FaLinkedin className="text-2xl mb-2 group-hover:scale-110 transition" />
+            <span className="text-sm text-gray-300 group-hover:text-white">LinkedIn</span>
+          </a>
+
+          {/* LeetCode */}
+          <a href="https://leetcode.com/Jyotiraditiya" target="_blank" className="group card-glossy p-5 rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow flex flex-col items-center justify-center text-white hover:scale-105 transition-all duration-300">
+            <SiLeetcode className="text-2xl mb-2 group-hover:scale-110 transition" />
+            <span className="text-sm text-gray-300 group-hover:text-white">LeetCode</span>
+          </a>
+
+        </div>
+
+        {/* Contact Info Cards */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          {/* Email Card */}
+          <div className="card-glossy p-6 rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow text-white hover:scale-105 transition-all duration-300">
+            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
+              <FaEnvelope /> Email
+            </h3>
+            <a href="mailto:misrajyotiraditya.com" className="text-gray-300 hover:text-white transition">
+              misrajyotiraditya.com
+            </a>
+          </div>
+
+          {/* Phone Card */}
+          <div className="card-glossy p-6 rounded-xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow text-white hover:scale-105 transition-all duration-300">
+            <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
+              <FaPhone /> Phone
+            </h3>
+            <a href="tel:+918303367186" className="text-gray-300 hover:text-white transition">
+              +91 8303xxxxxxx
+            
+            </a>
+          </div>
+
+        </div>
       </div>
     </section>
   )

@@ -19,7 +19,13 @@ export default function About() {
           className="w-56 h-56 md:w-64 md:h-64 rounded-lg object-cover border border-white/20 shadow-xl hidden sm:block hover:scale-105 transition-transform duration-300 mr-auto"
         />
 
-        <div className="relative card-glossy p-8 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow hover:shadow-xl transition-all duration-300 w-full md:w-[70%] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:via-transparent before:to-transparent before:opacity-20 before:pointer-events-none">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          className="relative card-glossy p-8 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 shadow-glow hover:shadow-xl transition-all duration-300 w-full md:w-[70%] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:via-transparent before:to-transparent before:opacity-20 before:pointer-events-none"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 opacity-40 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent opacity-20 pointer-events-none" />
           <div className="absolute inset-0 backdrop-blur-2xl opacity-10 pointer-events-none" />
@@ -59,7 +65,7 @@ export default function About() {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
