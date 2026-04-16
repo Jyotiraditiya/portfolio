@@ -26,6 +26,7 @@ export default function HeroContent({ loaded }: HeroContentProps) {
         animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
         transition={{ delay: 1.4, duration: 0.8, ease: 'easeOut' }}
       >
+
         <p className="text-gray-400">
           Software Developer · Full Stack Developer
         </p>
@@ -33,6 +34,7 @@ export default function HeroContent({ loaded }: HeroContentProps) {
         <p className="mt-4 text-gray-300 max-w-md">
           Building Scalable, Intelligent & High-Performance Systems
         </p>
+        
       </motion.div>
     </div>
   )

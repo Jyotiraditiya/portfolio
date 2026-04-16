@@ -1,22 +1,7 @@
-# Jyotiraditiya Misra - Portfolio
+Place a GLTF/GLB transformer model here for the hero 3D scene.
 
-This is a Next.js + Tailwind CSS portfolio template with 3D hero animation (React Three Fiber), Framer Motion, and GSAP animations. Designed with a black matte automotive aesthetic.
+Recommended:
+- Use an optimized, rigged GLB no larger than 5–10MB for fast loading.
+- Name the file `transformer.glb` so the app can load it from `/models/transformer.glb`.
 
-Run locally:
-
-1. Install dependencies
-
-   npm install
-
-2. Run development server
-
-   npm run dev
-
-Build for production:
-
-   npm run build
-   npm start
-
-Deployment:
-
-- Ready for Vercel. Create a project and point to this repository. Ensure the environment variables (SMTP, GITHUB_TOKEN) are set if using contact or API integrations.
+If you don't have a model yet, use a placeholder or export a low-poly model from Blender.

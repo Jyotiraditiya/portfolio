@@ -13,7 +13,7 @@ export default function TransformerModel({ onLoad }: Props) {
   const group = useRef<THREE.Group | null>(null)
 
   // Load GLTF model
-  const gltf = useGLTF('/models/transformer.glb', true) as any
+  const gltf = useGLTF('/models/transformer.glb') as any
   const { scene, animations } = gltf || {}
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function TransformerModel({ onLoad }: Props) {
       if (obj.isMesh && obj.material) {
         obj.material.transparent = true
         obj.material.opacity = 1
-        obj.frustumCulled = true
+        obj.frustumCulled = false
       }
     })
   }, [scene])
@@ -47,17 +47,17 @@ export default function TransformerModel({ onLoad }: Props) {
 
   // Notify parent when loaded
   useEffect(() => {
-    if (onLoad) {
+    if (scene && onLoad) {
       try {
         onLoad()
       } catch (e) {
         // ignore
       }
     }
-  }, [onLoad, scene])
+  }, [scene, onLoad])
 
   // Subtle rotation
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (group.current) {
       group.current.rotation.y += delta * 0.12
     }
@@ -86,6 +86,4 @@ export default function TransformerModel({ onLoad }: Props) {
   )
 }
 
-if (typeof window !== 'undefined') {
-  useGLTF.preload('/models/transformer.glb')
-}
+useGLTF.preload('/models/transformer.glb')

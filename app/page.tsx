@@ -13,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <section className="container mx-auto px-6">
+       
         <About />
         <Skills />
         <Projects />
