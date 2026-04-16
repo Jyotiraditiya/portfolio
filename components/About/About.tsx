@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -8,16 +9,22 @@ export default function About() {
 
       <div className="flex flex-col md:flex-row items-start justify-start gap-8 w-full">
         {/* FIXED IMAGE */}
-        <motion.img
-          src="/images/IMG_1020.JPG"
-          alt="Jyotiraditiya Misra"
-          loading="lazy"
+        <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
           viewport={{ once: true }}
-          className="w-56 h-56 md:w-64 md:h-64 rounded-lg object-cover border border-white/20 shadow-xl hidden sm:block hover:scale-105 transition-transform duration-300 mr-auto"
-        />
+          className="hidden sm:block mr-auto"
+        >
+          <Image
+            src="/images/IMG_1020.JPG"
+            alt="Jyotiraditiya Misra"
+            width={256}
+            height={256}
+            className="w-56 h-56 md:w-64 md:h-64 rounded-lg object-cover border border-white/20 shadow-xl hover:scale-105 transition-transform duration-300"
+            priority
+          />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}

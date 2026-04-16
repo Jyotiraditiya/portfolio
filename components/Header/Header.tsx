@@ -23,7 +23,7 @@ export default function Header() {
       {/* Center Name */}
       <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-3">
         <Image
-          src="/img_1020.jpg"
+          src="/images/IMG_1020.JPG"
           alt="Jyotiraditiya Misra"
           width={40}
           height={40}
