@@ -74,8 +74,8 @@ export default function Contact(){
             <h3 className="text-lg font-semibold mb-2 flex items-center gap-2">
               <FaEnvelope /> Email
             </h3>
-            <a href="mailto:misrajyotiraditya.com" className="text-gray-300 hover:text-white transition">
-              misrajyotiraditya.com
+            <a href="mailto:workjyotiraditya.com" className="text-gray-300 hover:text-white transition">
+              workjyotiraditya.com
             </a>
           </div>
 
