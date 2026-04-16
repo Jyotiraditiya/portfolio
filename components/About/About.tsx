@@ -9,7 +9,7 @@ export default function About() {
       <div className="flex flex-col md:flex-row items-start justify-start gap-8 w-full">
         {/* FIXED IMAGE */}
         <motion.img
-          src="/images/image_1020.JPG"
+          src="/images/IMG_1020.JPG"
           alt="Jyotiraditiya Misra"
           loading="lazy"
           initial={{ opacity: 0, x: -60 }}
