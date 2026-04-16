@@ -7,9 +7,9 @@ export default function About() {
       <h2 className="text-3xl font-semibold mb-6 font-serif md:w-[70%] md:ml-auto">About</h2>
 
       <div className="flex flex-col md:flex-row items-start justify-start gap-8 w-full">
-        {/* Profile image fetched from /public/img_1020.jpg */}
+        {/* FIXED IMAGE */}
         <motion.img
-          src="/img_1020.jpg"
+          src="/images/image_1020.JPG"
           alt="Jyotiraditiya Misra"
           loading="lazy"
           initial={{ opacity: 0, x: -60 }}
@@ -52,7 +52,6 @@ export default function About() {
                 </p>
               </div>
             </div>
-
 
             <div className="mt-4 flex gap-3">
               <a
