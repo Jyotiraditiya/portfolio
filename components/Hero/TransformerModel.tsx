@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, Suspense } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import * as THREE from 'three'
@@ -30,8 +30,10 @@ export default function TransformerModel({ onLoad }: Props) {
           obj.material.opacity = 1
         }
         obj.frustumCulled = false
+        obj.visible = true
       }
     })
+    scene.updateMatrixWorld(true)
   }, [scene])
 
   const { mixer } = useAnimations(animations ?? [], group)
@@ -70,6 +72,8 @@ export default function TransformerModel({ onLoad }: Props) {
     }
   })
 
+  console.log("GLTF scene:", scene)
+
   // Fallback if model fails
   if (!scene) {
     return (
@@ -87,9 +91,11 @@ export default function TransformerModel({ onLoad }: Props) {
   }
 
   return (
-    <group ref={group} dispose={null} scale={[3,3,3]} position={[-0.7,-1.9,0]} rotation={[0,-0.5,0]}>
-      <primitive object={scene.clone()} />
-    </group>
+    <Suspense fallback={null}>
+      <group dispose={null} scale={[3,3,3]} position={[-0.7,-1.9,0]} rotation={[0,-0.5,0]}>
+        <primitive ref={group} object={scene.clone()} />
+      </group>
+    </Suspense>
   )
 }
 
