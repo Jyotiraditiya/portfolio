@@ -13,15 +13,22 @@ export default function TransformerModel({ onLoad }: Props) {
   const group = useRef<THREE.Group | null>(null)
 
   // Load GLTF model
-  const gltf = useGLTF('/models/transformer.glb') as any
+  const gltf = useGLTF('/models/transformer.glb', true) as any
   const { scene, animations } = gltf || {}
 
   useEffect(() => {
     if (!scene) return
     scene.traverse((obj: any) => {
       if (obj.isMesh && obj.material) {
-        obj.material.transparent = true
-        obj.material.opacity = 1
+        if (Array.isArray(obj.material)) {
+          obj.material.forEach((mat: any) => {
+            mat.transparent = true
+            mat.opacity = 1
+          })
+        } else {
+          obj.material.transparent = true
+          obj.material.opacity = 1
+        }
         obj.frustumCulled = false
       }
     })
@@ -64,7 +71,7 @@ export default function TransformerModel({ onLoad }: Props) {
   })
 
   // Fallback if model fails
-  if (!gltf || !gltf.scene) {
+  if (!scene) {
     return (
       <group ref={group} scale={[3.5, 3.5, 3.5]} position={[-0.7, -1.9, 0]}>
         <mesh rotation={[0, Math.PI / 8, 0]}>
@@ -81,7 +88,7 @@ export default function TransformerModel({ onLoad }: Props) {
 
   return (
     <group ref={group} dispose={null} scale={[3,3,3]} position={[-0.7,-1.9,0]} rotation={[0,-0.5,0]}>
-      <primitive object={scene} />
+      <primitive object={scene.clone()} />
     </group>
   )
 }
